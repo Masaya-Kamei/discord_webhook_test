@@ -22,7 +22,7 @@ jobs:
           curl -X POST -H 'Content-type: application/json' --data \
             "{
               \"content\": \"aaa\"
-            }"
+            }"\
             ${WEBHOOK_URL}
         env:
           ACTION: ${{ github.event.pages[0].action }}
