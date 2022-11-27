@@ -13,6 +13,8 @@ jobs:
           curl -X POST -H 'Content-type: application/json' \
             --data "{\"text\": \"Wiki ${ACTION}: ${TITLE}\n${URL}\"}" \
             ${WEBHOOK_URL}
+          curl -X POST -H 'Content-type: application/json' \
+            -d '{"content": "curlで送りました"}' ${WEBHOOK_URL}
         env:
           ACTION: ${{ github.event.pages[0].action }}
           TITLE: ${{ github.event.pages[0].title }}
