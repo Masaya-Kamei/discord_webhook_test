@@ -8,13 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{ github.event.repository.full_name }}.wiki
+          ref: ${{ github.event.pages[0].sha }}
+          fetch-depth: 2
       - name: Discord
         run: |
           url=${HTML_URL}/_compare/$(git rev-parse HEAD^)...$(git rev-parse HEAD)
           curl -X POST -H 'Content-type: application/json' --data \
             "{
-              \"text\": \"Text Wiki ${ACTION}: ${TITLE}\n${URL}\",
-              \"content\": \"Content Wiki ${ACTION}: ${TITLE}\n${URL}\"
+              \"content\": \"Content Wiki ${ACTION}: ${TITLE}\n${url}\"
             }"\
             ${WEBHOOK_URL}
         env:
