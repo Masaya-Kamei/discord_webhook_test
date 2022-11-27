@@ -21,7 +21,7 @@ jobs:
           echo ${current} ${prev} ${diff}
           curl -X POST -H 'Content-type: application/json' --data \
             "{
-              \"content\": \"\`\`\`diff\n${diff}\n\`\`\`\"
+              \"content\": \"\`\`\`diff\n+aaa\n-bbb\n\`\`\`\"
             }"\
             ${WEBHOOK_URL}
         env:
