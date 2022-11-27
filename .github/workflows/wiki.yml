@@ -11,10 +11,17 @@ jobs:
       - name: Discord
         run: |
           curl -X POST -H 'Content-type: application/json' \
-            --data "{\"text\": \"Wiki ${ACTION}: ${TITLE}\n${URL}\"}" \
+            --data \
+            '{
+              "text": "Wiki ${ACTION}: ${TITLE}\n${URL}",
+              "sender": {
+                "login": "Masaya-Kamei",
+                "id": 50983708,
+                "node_id": "MDQ6VXNlcjUwOTgzNzA4",
+                "avatar_url": "https://avatars.githubusercontent.com/u/50983708?v=4",
+              }
+            }'\
             ${WEBHOOK_URL}
-          curl -X POST -H 'Content-type: application/json' \
-            -d '{"content": "curlで送りました"}' ${WEBHOOK_URL}
         env:
           ACTION: ${{ github.event.pages[0].action }}
           TITLE: ${{ github.event.pages[0].title }}
