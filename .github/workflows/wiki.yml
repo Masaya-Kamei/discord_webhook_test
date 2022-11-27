@@ -19,7 +19,7 @@ jobs:
           echo $content
           curl -X POST -H 'Content-type: application/json' --data \
             "{
-              \"content\": \"\`\`\`diff\n+aaa\n\`\`\`\"
+              \"content\": \"\`\`\`diff\n${content}\n\`\`\`\"
             }"\
             ${WEBHOOK_URL}
         env:
