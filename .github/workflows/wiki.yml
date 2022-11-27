@@ -18,7 +18,7 @@ jobs:
           url=${HTML_URL}/_compare/$(git rev-parse HEAD^)...$(git rev-parse HEAD)
           curl -X POST -H 'Content-type: application/json' --data \
             "{
-              \"content\": \"Content Wiki ${ACTION}: ${TITLE}\n${url}\"
+              \"content\": \"Content Wiki ${ACTION}: ${TITLE}\n<${url}>\"
             }"\
             ${WEBHOOK_URL}
         env:
