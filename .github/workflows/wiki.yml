@@ -23,5 +23,4 @@ jobs:
           ACTION: ${{ github.event.pages[0].action }}
           TITLE: ${{ github.event.pages[0].title }}
           HTML_URL: ${{ github.event.pages[0].html_url }}
-          PAGE_NAME: ${{ github.event.pages[0].page_name }}
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
