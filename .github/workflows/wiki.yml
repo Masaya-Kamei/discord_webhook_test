@@ -15,17 +15,15 @@ jobs:
           fetch-depth: 2
       - name: Discord
         run: |
-          current=$(git rev-parse HEAD)
-          prev=$(git rev-parse HEAD^)
-          diff=`git diff ${prev} ${current}`
-          echo ${current} ${prev} ${diff}
+          content=`curl https://raw.githubusercontent.com/wiki/Masaya-Kamei/discord_webhook_test/${PAGE_NAME}.md`
           curl -X POST -H 'Content-type: application/json' --data \
             "{
-              \"content\": \"\`\`\`diff\n${diff}\n\`\`\`\"
+              \"content\": \"\`\`\`diff\n${content}\n\`\`\`\"
             }"\
             ${WEBHOOK_URL}
         env:
           ACTION: ${{ github.event.pages[0].action }}
           TITLE: ${{ github.event.pages[0].title }}
           HTML_URL: ${{ github.event.pages[0].html_url }}
+          PAGE_NAME: ${{ github.event.pages[0].page_name }}
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
