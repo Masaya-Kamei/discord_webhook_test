@@ -23,8 +23,7 @@ jobs:
             "{
               \"content\": \" ```diff
               aaaaa
-              ```
-              \"
+              ```\"
             }"\
             ${WEBHOOK_URL}
         env:
