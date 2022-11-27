@@ -21,10 +21,8 @@ jobs:
           echo ${current} ${prev} ${diff}
           curl -X POST -H 'Content-type: application/json' --data \
             "{
-              \"content\": \" ```diff
-              aaaaa
-              ```\"
-            }"\
+              \"content\": \"aaa\"
+            }"
             ${WEBHOOK_URL}
         env:
           ACTION: ${{ github.event.pages[0].action }}
