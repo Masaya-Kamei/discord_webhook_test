@@ -11,10 +11,10 @@ jobs:
       - name: Discord
         run: |
           curl -X POST -H 'Content-type: application/json' --data \
-            '{
-              "text": "Wiki ${ACTION}: ${TITLE}\n${URL}",
-              "content": "Wiki ${ACTION}: ${TITLE}\n${URL}"
-            }'\
+            "{
+              \"text\": \"Text Wiki ${ACTION}: ${TITLE}\n${URL}\",
+              \"content\": \"Content Wiki ${ACTION}: ${TITLE}\n${URL}\"
+            }"\
             ${WEBHOOK_URL}
         env:
           ACTION: ${{ github.event.pages[0].action }}
