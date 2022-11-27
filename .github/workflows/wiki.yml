@@ -16,9 +16,10 @@ jobs:
       - name: Discord
         run: |
           content=`curl https://raw.githubusercontent.com/wiki/Masaya-Kamei/discord_webhook_test/${PAGE_NAME}.md`
+          echo $content
           curl -X POST -H 'Content-type: application/json' --data \
             "{
-              \"content\": \"\`\`\`diff\n${content}\n\`\`\`\"
+              \"content\": \"\`\`\`diff\n+aaa\n\`\`\`\"
             }"\
             ${WEBHOOK_URL}
         env:
