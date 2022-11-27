@@ -17,13 +17,13 @@ jobs:
         run: |
           current=$(git rev-parse HEAD)
           prev=$(git rev-parse HEAD^)
-          diff=$(git diff ${prev} ${current})
+          diff=`git diff ${prev} ${current}`
           curl -X POST -H 'Content-type: application/json' --data \
             "{
               \"content\": \
               \"
               ```diff
-              ${diff}
+              aaaaa
               ```
               \"
             }"\
