@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 2
       - name: Discord
         run: |
-          content=`curl https://raw.githubusercontent.com/wiki/Masaya-Kamei/discord_webhook_test/${PAGE_NAME}.md`
+          content=`curl -s https://raw.githubusercontent.com/wiki/Masaya-Kamei/discord_webhook_test/${PAGE_NAME}.md`
           echo $content
           curl -X POST -H 'Content-type: application/json' --data \
             "{
