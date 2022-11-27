@@ -14,12 +14,6 @@ jobs:
             --data \
             '{
               "text": "Wiki ${ACTION}: ${TITLE}\n${URL}",
-              "sender": {
-                "login": "Masaya-Kamei",
-                "id": 50983708,
-                "node_id": "MDQ6VXNlcjUwOTgzNzA4",
-                "avatar_url": "https://avatars.githubusercontent.com/u/50983708?v=4",
-              }
             }'\
             ${WEBHOOK_URL}
         env:
