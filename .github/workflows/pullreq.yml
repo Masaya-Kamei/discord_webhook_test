@@ -16,4 +16,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: test
         run: |
-          echo ${{ github.event }}
+          echo ${{ github.event.pull_request }}
+          echo ${PULL}
+        env:
+          PULL: ${{ github.event.pull_request }}
