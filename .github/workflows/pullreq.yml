@@ -17,6 +17,7 @@ jobs:
       - name: test
         run: |
           echo ${{ github.event.pull_request }}
-          echo ${PULL}
-        env:
-          PULL: ${{ github.event.pull_request }}
+          echo ${github.event.pull_request}
+          echo ${{ github.event }}
+          echo ${ github.event }
+
