@@ -13,6 +13,6 @@ jobs:
       - name: test
         run: |
           echo ${{ github.event.pull_request.action }}
-          echo ${{ github.event.pull_request.pull_request }}
-          echo ${{ github.event.pull_request }}
+          echo ${{ github.event.action }}
+          echo ${{ github.event.pull_request.url }}
 
