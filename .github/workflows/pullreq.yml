@@ -1,7 +1,12 @@
 name: pull_request
 
 on:
-  pull_request
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'main'
+
 
 jobs:
   notify:
@@ -11,6 +16,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: test
         run: |
-          echo ${EVENT}
-        env:
-          EVENT: ${{ github.event }}
+          echo ${{ github.event.pull_request }}
+          echo ${github.event.pull_request}
+          echo ${{ github.event }}
+          echo ${ github.event }
+
