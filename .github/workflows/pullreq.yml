@@ -1,16 +1,19 @@
 name: pull_request
 
 on:
-  pull_request
-
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'main'
 
 jobs:
   notify:
     runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.merged }}
 
     steps:
       - name: test
         run: |
-          echo ${{ github.event.pull_request.merged }}
           echo ${{ github.event.pull_request.html_url }}
 
