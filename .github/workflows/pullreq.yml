@@ -1,0 +1,16 @@
+name: Wiki
+
+on:
+  pull_request
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: test
+        run: |
+          echo ${EVENT}
+        env:
+          EVENT: ${{ github.event }}
