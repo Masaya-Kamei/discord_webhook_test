@@ -1,4 +1,4 @@
-name: Wiki
+name: pull_request
 
 on:
   pull_request
